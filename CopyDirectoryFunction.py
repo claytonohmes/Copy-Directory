@@ -27,7 +27,7 @@ def copy_directory_contents(source_dir, dest_dir):
             src_file = os.path.join(root, file)
             dst_file = os.path.join(dest_path, file)
             shutil.copy2(src_file, dst_file)
-            print(f"Copied '{src_file}' to '{dst_file}'")
+            #print(f"Copied '{src_file}' to '{dst_file}'")
 
 if __name__ == "__main__":
     # Get user input for source and destination directories
