@@ -29,6 +29,7 @@ def copy_directory_contents(source_dir, dest_dir):
             shutil.copy2(src_file, dst_file)
             #print(f"Copied '{src_file}' to '{dst_file}'")
 
+#used for testing purposed, only executes if this script is directly run.
 if __name__ == "__main__":
     # Get user input for source and destination directories
     source_directory = 'C:\\Scripts\\Atlanta West File Copy\\Server1'

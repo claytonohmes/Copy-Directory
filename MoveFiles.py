@@ -8,20 +8,15 @@ config.read(ConfigLocation + 'Config.ini')
 
 
 #Get the Target and destination folder paths from the config file.
-TargetPath1 = config['SERVERS']['TargetPath']
+TargetPath1 = config['SERVERS']['TargetPath1']
+TargetPath2 = config['SERVERS']['TargetPath2']
 DestinationPath1 = config['SERVERS']['DestPath']
 
-class CustomError(Exception):
-    '''
-    Custom Error message for error handling
-    '''
-    def __init__(self, message):
-        self.message = message
-        super().__init__(self.message)
-
-schedule.every(30).seconds.do(copy_directory_contents,TargetPath1,DestinationPath1)
+#Copy each target path every 30 seconds.
+schedule.every(1).hours.do(copy_directory_contents,TargetPath1,DestinationPath1)
+schedule.every(1).hours.do(copy_directory_contents,TargetPath2,DestinationPath1)
 
 while True:
     schedule.run_pending()
     #print('Waiting....')
-    time.sleep(10)
+    time.sleep(60)
